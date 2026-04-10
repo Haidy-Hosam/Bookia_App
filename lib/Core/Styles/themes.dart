@@ -13,8 +13,8 @@ abstract class AppThemes {
       centerTitle: true,
       surfaceTintColor: Colors.transparent,
     ),
-    dividerColor: Colors.transparent,
-    dividerTheme: DividerThemeData(color: AppColors.borderColor),
+    dividerColor: AppColors.greyColor,
+    dividerTheme: DividerThemeData(color: AppColors. greyColor, thickness: .5, space: 1),
     textButtonTheme: TextButtonThemeData(
       style: TextButton.styleFrom(
         padding: EdgeInsets.zero,
@@ -26,22 +26,22 @@ abstract class AppThemes {
       hintStyle: TextStyles.body.copyWith(color: AppColors.greyColor),
       fillColor: AppColors.accentColor,
       filled: true,
-      enabledBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(8),
-        borderSide: BorderSide(color: AppColors.borderColor),
-      ),
-      focusedBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(8),
-        borderSide: BorderSide(color: AppColors.borderColor),
-      ),
-      errorBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(8),
-        borderSide: BorderSide(color: AppColors.errorColor),
-      ),
-      focusedErrorBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(8),
-        borderSide: BorderSide(color: AppColors.errorColor),
-      ),
+       enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(14),
+          borderSide: BorderSide(color: AppColors.borderColor, width: 0.5),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(14),
+          borderSide: BorderSide(color: AppColors.primaryColor, width: .5),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(14),
+          borderSide: BorderSide(color: Colors.red, width: 0.5),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(14),
+          borderSide: BorderSide(color: Colors.red, width: 0.5),
+        ),
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       type: BottomNavigationBarType.fixed,

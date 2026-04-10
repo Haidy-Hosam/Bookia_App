@@ -1,8 +1,10 @@
 import 'package:bookia_app/Core/Common%20Widgets/primary_elevated_button.dart';
 import 'package:bookia_app/Core/Constants/app_images.dart';
 import 'package:bookia_app/Core/Functions/extentions.dart';
+import 'package:bookia_app/Core/Functions/navigation.dart';
 import 'package:bookia_app/Core/Styles/Appcolors.dart';
 import 'package:bookia_app/Core/Styles/text_styles.dart';
+import 'package:bookia_app/Features/authentication/presentation/login/page/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -52,7 +54,9 @@ class WelcomeScreen extends StatelessWidget {
             left: 23,
             right: 23,
             child: Center(
-              child: PrimaryElevatedBotton(title: 'Login', onPressed: () {}),
+              child: PrimaryElevatedBotton(title: 'Login', onPressed: () {
+                pushTo(context, LoginScreen());
+              }),
             ),
           ),
           Positioned(
