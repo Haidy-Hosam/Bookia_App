@@ -61,20 +61,6 @@ class RegisterScreen extends StatelessWidget {
                 AppPassFormField(title: 'Password'),
                 10.h,
                 AppPassFormField(title: 'Confirm password'),
-                10.h,
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: TextButton(
-                    onPressed: () {
-                      // pushTo(context, ForgotPassword());
-                    },
-                    style: TextButton.styleFrom(
-                      padding: EdgeInsets.zero,
-                      foregroundColor: AppColors.darkGreyColor,
-                    ),
-                    child: Text('Forgot Password?'),
-                  ),
-                ),
                 30.h,
 
                 PrimaryElevatedBotton(title: 'Register', onPressed: () {}),
