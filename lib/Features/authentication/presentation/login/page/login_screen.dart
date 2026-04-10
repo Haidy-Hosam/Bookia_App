@@ -7,6 +7,7 @@ import 'package:bookia_app/Core/Functions/navigation.dart';
 import 'package:bookia_app/Core/Styles/Appcolors.dart';
 import 'package:bookia_app/Core/Styles/text_styles.dart';
 import 'package:bookia_app/Core/Common%20Widgets/apppassformfield.dart';
+import 'package:bookia_app/Features/authentication/presentation/Forget%20Password/forget_pass_screen.dart';
 import 'package:bookia_app/Features/authentication/presentation/login/widget/authfotter.dart';
 import 'package:bookia_app/Features/authentication/presentation/login/widget/gand_a__container.dart';
 import 'package:bookia_app/Features/authentication/presentation/register/registerScreen.dart';
@@ -60,7 +61,7 @@ class LoginScreen extends StatelessWidget {
                   alignment: Alignment.centerRight,
                   child: TextButton(
                     onPressed: () {
-                      // pushTo(context, ForgotPassword());
+                      pushTo(context, ForgetPasswordScreen());
                     },
                     style: TextButton.styleFrom(
                       padding: EdgeInsets.zero,
