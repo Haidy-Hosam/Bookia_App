@@ -32,7 +32,7 @@ class AuthFotter extends StatelessWidget {
               color: AppColors.primaryColor,
               fontWeight: FontWeight.w800,
               fontSize: 15,
-              decoration: TextDecoration.underline,
+              // decoration: TextDecoration.underline,
               decorationThickness: 2,
             ),
             recognizer: TapGestureRecognizer()..onTap = onTap,
