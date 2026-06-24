@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:bookia_app/Core/Common%20Widgets/customtextformdield.dart';
 import 'package:bookia_app/Core/Common%20Widgets/dailogs.dart';
 import 'package:bookia_app/Core/Common%20Widgets/my_body_view.dart';
@@ -26,18 +25,12 @@ class RegisterScreen extends StatelessWidget {
       listener: (context, state) {
         if (state is AuthLoadingState) {
           log("Register Loading");
-          pop(context);
           showLoadingDialog(context);
-        } 
-        
-        
-        else if (state is AuthSuccessState) {
+        } else if (state is AuthSuccessState) {
           log("Register Success");
           pop(context);
           pushTo(context, Routes.login);
-        } 
-        
-        else if (state is AuthErrorState) {
+        } else if (state is AuthErrorState) {
           log("Register Failed");
           pop(context);
           showErrorDialog(context, state.message);
@@ -120,7 +113,7 @@ class RegisterScreen extends StatelessWidget {
               20.h,
               AppPassFormField(
                 title: 'Password',
-                Controller: context.read<AuthCubit>().passwordController,
+                controller: context.read<AuthCubit>().passwordController,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter your password';
@@ -131,7 +124,7 @@ class RegisterScreen extends StatelessWidget {
               10.h,
               AppPassFormField(
                 title: 'Confirm password',
-                Controller: context
+                controller: context
                     .read<AuthCubit>()
                     .passwordConfirmationController,
                 validator: (value) {

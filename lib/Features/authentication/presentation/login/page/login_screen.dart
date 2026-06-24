@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:bookia_app/Core/Common%20Widgets/customtextformdield.dart';
 import 'package:bookia_app/Core/Common%20Widgets/dailogs.dart';
 import 'package:bookia_app/Core/Common%20Widgets/my_body_view.dart';
@@ -28,11 +27,12 @@ class LoginScreen extends StatelessWidget {
       listener: (context, state) {
         if (state is AuthLoadingState) {
           log("Register Loading");
-          pop(context);
           showLoadingDialog(context);
         } else if (state is AuthSuccessState) {
           log("Register Success");
           pop(context);
+          pushTo(context, Routes.home);
+
           pushTo(context, Routes.login);
         } else if (state is AuthErrorState) {
           log("Register Failed");
@@ -74,91 +74,96 @@ class LoginScreen extends StatelessWidget {
       child: Form(
         autovalidateMode: AutovalidateMode.onUnfocus, // ****************** //
         key: cubit.formKey,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                "Welcome back! Glad to\n see you, Again!",
-                style: TextStyles.headline,
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "Welcome back! Glad to\n see you, Again!",
+                  style: TextStyles.headline,
+                ),
               ),
-            ),
-            SizedBox(height: 10),
+              SizedBox(height: 10),
 
-            SizedBox(height: 30),
+              SizedBox(height: 30),
 
-            customtextformdield(
-              hintText: 'Enter your email',
-              keyboardType: TextInputType.emailAddress,
-              controller: cubit.emailController,
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Please enter your email';
-                }
-                return null;
-              },
-            ),
-            20.h,
-            AppPassFormField(
-              title: 'Enter your password',
-              Controller: cubit.passwordController,
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Please enter your password';
-                }
-                return null;
-              },
-            ),
-            10.h,
-            Align(
-              alignment: Alignment.centerRight,
-              child: TextButton(
-                onPressed: () {
-                  pushTo(context, Routes.forgetPassword);
+              customtextformdield(
+                hintText: 'Enter your email',
+                keyboardType: TextInputType.emailAddress,
+                controller: cubit.emailController,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter your email';
+                  }
+                  return null;
                 },
-                style: TextButton.styleFrom(
-                  padding: EdgeInsets.zero,
-                  foregroundColor: AppColors.darkGreyColor,
-                ),
-                child: Text('Forgot Password?'),
               ),
-            ),
-            30.h,
-
-            PrimaryElevatedBotton(
-              title: 'Login',
-              onPressed: () {
-                if (cubit.formKey.currentState!.validate()) {
-                  cubit.login();
-                }
-              },
-            ),
-            30.h,
-
-            Row(
-              children: [
-                Expanded(child: Divider()),
-                40.w,
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
-                  child: Text(
-                    "Or",
-                    style: TextStyles.caption2.copyWith(fontSize: 14),
+              20.h,
+              AppPassFormField(
+                title: 'Enter your password',
+                controller: cubit.passwordController,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter your password';
+                  }
+                  return null;
+                },
+              ),
+              10.h,
+              Align(
+                alignment: Alignment.centerRight,
+                child: TextButton(
+                  onPressed: () {
+                    pushTo(context, Routes.forgetPassword);
+                  },
+                  style: TextButton.styleFrom(
+                    padding: EdgeInsets.zero,
+                    foregroundColor: AppColors.darkGreyColor,
                   ),
+                  child: Text('Forgot Password?'),
                 ),
-                40.w,
-                Expanded(child: Divider()),
-              ],
-            ),
-            30.h,
-            GandA_Container(
-              title: "Sign in with Google",
-              icon: AppImages.google,
-            ),
-            20.h,
-            GandA_Container(title: "Sign in with Apple", icon: AppImages.apple),
-          ],
+              ),
+              30.h,
+
+              PrimaryElevatedBotton(
+                title: 'Login',
+                onPressed: () {
+                  if (cubit.formKey.currentState!.validate()) {
+                    cubit.login();
+                  }
+                },
+              ),
+              30.h,
+
+              Row(
+                children: [
+                  Expanded(child: Divider()),
+                  40.w,
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    child: Text(
+                      "Or",
+                      style: TextStyles.caption2.copyWith(fontSize: 14),
+                    ),
+                  ),
+                  40.w,
+                  Expanded(child: Divider()),
+                ],
+              ),
+              30.h,
+              GandA_Container(
+                title: "Sign in with Google",
+                icon: AppImages.google,
+              ),
+              20.h,
+              GandA_Container(
+                title: "Sign in with Apple",
+                icon: AppImages.apple,
+              ),
+            ],
+          ),
         ),
       ),
     );

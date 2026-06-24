@@ -6,14 +6,14 @@ class AppPassFormField extends StatefulWidget {
     required this.title,
     this.keyboardType = TextInputType.text,
     this.suffix,
-    this.Controller,
+    this.controller,
     this.validator
   });
   final String title;
   final Icon? suffix;
   final TextInputType keyboardType;
-  final TextEditingController? Controller;
-    final String? Function(String?)? validator;
+  final TextEditingController? controller;
+  final String? Function(String?)? validator;
 
   @override
   State<AppPassFormField> createState() => _AppPassFormFieldState();
@@ -40,9 +40,12 @@ class _AppPassFormFieldState extends State<AppPassFormField> {
                   : Icon(Icons.remove_red_eye_rounded),
             ),
         hintText: widget.title,
-        errorText: widget.validator != null ? widget.validator?.call("") : null,
       ),
-      onTapUpOutside: (event){
+        controller: widget.controller,
+      // onTapUpOutside: (event){
+      //   FocusManager.instance.primaryFocus?.un();
+      // },
+      onTapUpOutside: (event) {
         FocusManager.instance.primaryFocus?.unfocus();
       },
     );
