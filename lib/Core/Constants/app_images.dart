@@ -4,5 +4,6 @@ class AppImages {
   static const String success = 'assets/icons/Successmark.svg';
   static const String back = 'assets/icons/back.svg';
   static const String google = 'assets/icons/google_ic.svg';
+  static const String loadingJson = 'assets/json/loading.json';
   static const String apple = 'assets/icons/cib_apple.svg';
 }

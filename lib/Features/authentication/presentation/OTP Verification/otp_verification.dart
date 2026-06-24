@@ -1,13 +1,12 @@
 import 'dart:async';
-
-import 'package:bookia_app/Core/Common%20Widgets/customtextformdield.dart';
 import 'package:bookia_app/Core/Common%20Widgets/my_body_view.dart';
 import 'package:bookia_app/Core/Common%20Widgets/primary_elevated_button.dart';
 import 'package:bookia_app/Core/Constants/app_images.dart';
 import 'package:bookia_app/Core/Functions/extentions.dart';
-import 'package:bookia_app/Core/Functions/navigation.dart';
+import 'package:bookia_app/Core/routes/navigation.dart';
 import 'package:bookia_app/Core/Styles/Appcolors.dart';
 import 'package:bookia_app/Core/Styles/text_styles.dart';
+import 'package:bookia_app/Core/routes/routes.dart';
 import 'package:bookia_app/Features/authentication/presentation/Create%20new%20password/createnasswordScreen.dart';
 import 'package:bookia_app/Features/authentication/presentation/login/page/login_screen.dart';
 import 'package:bookia_app/Features/authentication/presentation/login/widget/authfotter.dart';
@@ -114,7 +113,7 @@ class _OTP_VerificationState extends State<OTP_Verification> {
                 30.h,
 
                 PrimaryElevatedBotton(title: 'Verify', onPressed: () {
-                  pushTo(context, CreatenewpasswordScreeen());
+                  pushTo(context, Routes.createPassword);
                 }),
 
                 20.h,
@@ -154,7 +153,7 @@ class _OTP_VerificationState extends State<OTP_Verification> {
           first: "Didn’t received code ?",
           sec: '   Resend',
           onTap: () {
-            pushTo(context, LoginScreen());
+            pushTo(context, Routes.login);
           },
         ),
       ),

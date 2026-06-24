@@ -1,0 +1,65 @@
+import 'package:bookia_app/Core/routes/routes.dart';
+import 'package:bookia_app/Features/Splash_Screen/splashscreen.dart';
+import 'package:bookia_app/Features/authentication/presentation/Create%20new%20password/createnasswordScreen.dart';
+import 'package:bookia_app/Features/authentication/presentation/Forget%20Password/forget_pass_screen.dart';
+import 'package:bookia_app/Features/authentication/presentation/OTP%20Verification/otp_verification.dart';
+import 'package:bookia_app/Features/authentication/presentation/PasswordChangedScreen/pass_changed_screen.dart';
+import 'package:bookia_app/Features/authentication/presentation/cubit/auth_cubit.dart';
+import 'package:bookia_app/Features/authentication/presentation/login/page/login_screen.dart';
+import 'package:bookia_app/Features/authentication/presentation/register/registerScreen.dart';
+import 'package:go_router/go_router.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+class AppRouter {
+  static final routes = GoRouter(
+    initialLocation: Routes.splash,
+    // ========================================================================================== //
+    routes: [
+      GoRoute(
+        path: Routes.splash,
+        builder: (context, state) => const Splashscreen(),
+      ),
+      // ========================================================================================== //
+      GoRoute(
+        path: Routes.register,
+        builder: (context, state) => BlocProvider(
+          create: (context) => AuthCubit(),
+          child: const RegisterScreen(),
+        ),
+      ),
+      // ========================================================================================== //
+      GoRoute(
+        path: Routes.login,
+        builder: (context, state) => BlocProvider(
+          create: (context) => AuthCubit(),
+          child: const LoginScreen(),
+        ),
+      ),
+      // ========================================================================================== //
+      // GoRoute(
+      //   path: Routes.home,
+      //   builder: (context, state) => const Splashscreen(),
+      // ),
+      // ========================================================================================== //
+      GoRoute(
+        path: Routes.otpVerification,
+        builder: (context, state) => const OTP_Verification(),
+      ),
+      // ========================================================================================== //
+      GoRoute(
+        path: Routes.createPassword,
+        builder: (context, state) => const CreatenewpasswordScreeen(),
+      ),
+      // ========================================================================================== //
+      GoRoute(
+        path: Routes.forgetPassword,
+        builder: (context, state) => const ForgetPasswordScreen(),
+      ),
+      // ========================================================================================== //
+      GoRoute(
+        path: Routes.passwordChanged,
+        builder: (context, state) => const PasswordChangedScreen(),
+      ),
+    ],
+  );
+}

@@ -7,11 +7,16 @@ environment:
   sdk: ^3.10.4
 
 dependencies:
+  bloc_ui_generator: ^1.0.12
   device_preview: ^1.3.1
+  dio: ^5.9.2
   flutter:
     sdk: flutter
+  flutter_bloc: ^8.1.3
   flutter_svg: ^2.2.4
+  go_router: ^17.3.0
   pinput: ^5.0.0
+  lottie: ^3.3.2
 
 dev_dependencies:
   flutter_lints: ^6.0.0

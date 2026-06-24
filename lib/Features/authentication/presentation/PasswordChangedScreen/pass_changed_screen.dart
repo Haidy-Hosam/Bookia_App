@@ -2,9 +2,10 @@ import 'package:bookia_app/Core/Common%20Widgets/my_body_view.dart';
 import 'package:bookia_app/Core/Common%20Widgets/primary_elevated_button.dart';
 import 'package:bookia_app/Core/Constants/app_images.dart';
 import 'package:bookia_app/Core/Functions/extentions.dart';
-import 'package:bookia_app/Core/Functions/navigation.dart';
+import 'package:bookia_app/Core/routes/navigation.dart';
 import 'package:bookia_app/Core/Styles/Appcolors.dart';
 import 'package:bookia_app/Core/Styles/text_styles.dart';
+import 'package:bookia_app/Core/routes/routes.dart';
 import 'package:bookia_app/Features/authentication/presentation/login/page/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -51,7 +52,7 @@ class PasswordChangedScreen extends StatelessWidget {
               PrimaryElevatedBotton(
                 title: 'Back to Login',
                 onPressed: () {
-                  pushTo(context, LoginScreen());
+                  pushTo(context, Routes.login);
                 },
               ),
 
