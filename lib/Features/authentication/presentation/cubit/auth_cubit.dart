@@ -18,8 +18,8 @@ class AuthCubit extends Cubit<AuthState> {
     emit(AuthLoadingState());
 
     var params = AuthParams(
-      username: nameController.text,
       email: emailController.text,
+      password: passwordController.text,
     );
 
     var data = await AuthRepo.loginRepo(params);

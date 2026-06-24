@@ -7,12 +7,14 @@ import 'package:bookia_app/Features/authentication/data/models/auth_response/aut
 class AuthRepo {
   static Future<AuthResponse?> loginRepo(AuthParams params) async {
     try {
-      DioProvider.post(
+      log("--------1---------");
+      var response = await DioProvider.post(
         // البادي بتاع الريكويست
         endpoint: APIs.loginEndpoint,
         data: params.toJson(),
       ).then((response) {
         // البادي بتاع الريسبونس
+        log("--------2---------");
         if (response.statusCode == 200) {
           // Handle successful registration
           var data = AuthResponse.fromJson(response.data);

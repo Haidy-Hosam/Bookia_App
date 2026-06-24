@@ -60,6 +60,16 @@ class AppRouter {
         path: Routes.passwordChanged,
         builder: (context, state) => const PasswordChangedScreen(),
       ),
+      //       ShellRoute(
+      //   builder: (context, state, child) {
+      //     return MainLayout(
+      //       child: child,
+      //     );
+      //   },
+      //   routes: [
+      //     ...
+      //   ],
+      // )
     ],
   );
 }
