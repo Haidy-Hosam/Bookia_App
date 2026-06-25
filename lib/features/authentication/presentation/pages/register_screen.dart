@@ -1,0 +1,154 @@
+import 'dart:developer';
+import 'package:bookia_app/core/widgets/custom_text_form_field.dart';
+import 'package:bookia_app/core/widgets/dialogs.dart';
+import 'package:bookia_app/core/widgets/my_body_view.dart';
+import 'package:bookia_app/core/widgets/primary_elevated_button.dart';
+import 'package:bookia_app/core/constants/app_images.dart';
+import 'package:bookia_app/core/utils/extensions.dart';
+import 'package:bookia_app/core/routes/navigation.dart';
+import 'package:bookia_app/core/styles/text_styles.dart';
+import 'package:bookia_app/core/widgets/app_pass_form_field.dart';
+import 'package:bookia_app/core/routes/routes.dart';
+import 'package:bookia_app/features/authentication/presentation/cubit/auth_cubit.dart';
+import 'package:bookia_app/features/authentication/presentation/cubit/auth_state.dart';
+import 'package:bookia_app/features/authentication/presentation/widgets/auth_footer.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+class RegisterScreen extends StatelessWidget {
+  const RegisterScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocListener<AuthCubit, AuthState>(
+      listener: (context, state) {
+        if (state is AuthLoadingState) {
+          log("Register Loading");
+          showLoadingDialog(context);
+        } else if (state is AuthSuccessState) {
+          log("Register Success");
+          pop(context);
+          pushTo(context, Routes.login);
+        } else if (state is AuthErrorState) {
+          log("Register Failed");
+          pop(context);
+          showErrorDialog(context, state.message);
+        }
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          leadingWidth: 90,
+          leading: IconButton(
+            onPressed: () {
+              pop(context);
+            },
+            icon: SvgPicture.asset(AppImages.back),
+          ),
+        ),
+
+        body: _rigesterBody(context),
+
+        bottomNavigationBar: Padding(
+          padding: const EdgeInsets.only(bottom: 20.0),
+          child: AuthFotter(
+            first: "Already have an account ?",
+            sec: '   Login Now',
+            onTap: () {
+              pushTo(context, Routes.login);
+            },
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _rigesterBody(BuildContext context) {
+    final cubit = context.read<AuthCubit>();
+
+    return MyBodyView(
+      child: SingleChildScrollView(
+        child: Form(
+          autovalidateMode: AutovalidateMode.onUnfocus, // ****************** //
+          key: cubit.formKey,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "Hello! Register to get started",
+                  style: TextStyles.headline,
+                ),
+              ),
+              const SizedBox(height: 10),
+              const SizedBox(height: 30),
+
+              CustomTextFormField(
+                hintText: 'Username',
+                keyboardType: TextInputType.emailAddress,
+                controller: context.read<AuthCubit>().nameController,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter your username';
+                  }
+                  return null;
+                },
+              ),
+              20.h,
+              CustomTextFormField(
+                hintText: 'Email',
+                keyboardType: TextInputType.emailAddress,
+                controller: context.read<AuthCubit>().emailController,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter your email';
+                  }
+                  return null;
+                },
+              ),
+              20.h,
+              AppPassFormField(
+                title: 'Password',
+                controller: context.read<AuthCubit>().passwordController,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter your password';
+                  }
+                  return null;
+                },
+              ),
+              10.h,
+              AppPassFormField(
+                title: 'Confirm password',
+                controller: context
+                    .read<AuthCubit>()
+                    .passwordConfirmationController,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please confirm your password';
+                  }
+                  return null;
+                },
+              ),
+              30.h,
+
+              PrimaryElevatedBotton(
+                title: 'Register',
+                onPressed: () {
+                  if (cubit.formKey.currentState!.validate()) {
+                    cubit.register();
+                  }
+                },
+              ),
+              30.h,
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
