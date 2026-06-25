@@ -1,1 +1,26 @@
 include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  errors:
+    missing_required_param: error
+    missing_return: error
+    todo: ignore
+    unused_import: warning
+    unused_local_variable: warning
+    dead_code: warning
+
+linter:
+  rules:
+    - prefer_const_constructors
+    - prefer_const_constructors_in_immutables
+    - prefer_const_declarations
+    - prefer_final_fields
+    - prefer_final_locals
+    - use_key_in_widget_constructors
+    - avoid_print
+    - always_declare_return_types
+    - cancel_subscriptions
+    - close_sinks
+    - avoid_empty_else
+    - camel_case_types
+    - file_names
