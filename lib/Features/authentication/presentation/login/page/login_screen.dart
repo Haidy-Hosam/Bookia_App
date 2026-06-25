@@ -31,9 +31,7 @@ class LoginScreen extends StatelessWidget {
         } else if (state is AuthSuccessState) {
           log("Register Success");
           pop(context);
-          pushTo(context, Routes.home);
-
-          pushTo(context, Routes.login);
+          pushTobase(context, Routes.mainApp);
         } else if (state is AuthErrorState) {
           log("Register Failed");
           pop(context);
@@ -132,6 +130,7 @@ class LoginScreen extends StatelessWidget {
                 onPressed: () {
                   if (cubit.formKey.currentState!.validate()) {
                     cubit.login();
+
                   }
                 },
               ),

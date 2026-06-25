@@ -1,5 +1,3 @@
-import 'package:bookia_app/Core/routes/navigation.dart';
-import 'package:bookia_app/Core/routes/routes.dart';
 import 'package:bookia_app/Features/authentication/data/models/auth_params.dart';
 import 'package:bookia_app/Features/authentication/data/repository/auth_repo.dart';
 import 'package:bookia_app/Features/authentication/presentation/cubit/auth_state.dart';

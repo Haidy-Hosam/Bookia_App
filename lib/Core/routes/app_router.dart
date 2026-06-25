@@ -1,4 +1,5 @@
 import 'package:bookia_app/Core/routes/routes.dart';
+import 'package:bookia_app/Features/Home/presentation/home_page.dart';
 import 'package:bookia_app/Features/Splash_Screen/splashscreen.dart';
 import 'package:bookia_app/Features/authentication/presentation/Create%20new%20password/createnasswordScreen.dart';
 import 'package:bookia_app/Features/authentication/presentation/Forget%20Password/forget_pass_screen.dart';
@@ -7,6 +8,7 @@ import 'package:bookia_app/Features/authentication/presentation/PasswordChangedS
 import 'package:bookia_app/Features/authentication/presentation/cubit/auth_cubit.dart';
 import 'package:bookia_app/Features/authentication/presentation/login/page/login_screen.dart';
 import 'package:bookia_app/Features/authentication/presentation/register/registerScreen.dart';
+import 'package:bookia_app/main_screen.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -36,14 +38,16 @@ class AppRouter {
         ),
       ),
       // ========================================================================================== //
-      // GoRoute(
-      //   path: Routes.home,
-      //   builder: (context, state) => const Splashscreen(),
-      // ),
+      GoRoute(path: Routes.home, builder: (context, state) => const HomePage()),
       // ========================================================================================== //
       GoRoute(
         path: Routes.otpVerification,
         builder: (context, state) => const OTP_Verification(),
+      ),
+      // ========================================================================================== //
+      GoRoute(
+        path: Routes.mainApp,
+        builder: (context, state) => const MainAppScreen(),
       ),
       // ========================================================================================== //
       GoRoute(
