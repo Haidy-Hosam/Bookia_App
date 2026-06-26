@@ -5,6 +5,7 @@ extension HeightSized on num {
     return SizedBox(height: toDouble());
   }
 }
+
 extension WidthSized on num {
   SizedBox get w {
     return SizedBox(width: toDouble());

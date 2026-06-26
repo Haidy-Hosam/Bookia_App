@@ -1,9 +1,9 @@
 import 'package:bookia_app/Core/Constants/app_images.dart';
 import 'package:bookia_app/Core/Functions/extentions.dart';
 import 'package:bookia_app/Core/Styles/Appcolors.dart';
-import 'package:bookia_app/Features/Home/presentation/widgets/bannerIndicator.dart';
-import 'package:bookia_app/Features/Home/presentation/widgets/bannerslider.dart';
-import 'package:bookia_app/Features/Home/presentation/widgets/best_seller_section.dart';
+import 'package:bookia_app/Features/Home/presentation/Widgets/bannerIndicator.dart';
+import 'package:bookia_app/Features/Home/presentation/Widgets/bannerslider.dart';
+import 'package:bookia_app/Features/Home/presentation/Widgets/best_seller_section.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -25,7 +25,6 @@ class _HomePageState extends State<HomePage> {
     AppImages.background,
     AppImages.mainPhotoInHome,
   ];
-
 
   @override
   void dispose() {

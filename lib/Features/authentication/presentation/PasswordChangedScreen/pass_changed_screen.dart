@@ -23,11 +23,7 @@ class PasswordChangedScreen extends StatelessWidget {
             children: [
               40.h,
 
-              SvgPicture.asset(
-                AppImages.success,
-                width: 100,
-                height: 100,
-              ),
+              SvgPicture.asset(AppImages.success, width: 100, height: 100),
 
               30.h,
 

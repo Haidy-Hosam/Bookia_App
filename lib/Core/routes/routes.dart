@@ -2,7 +2,6 @@ class Routes {
   static const String splash = '/';
   static const String login = '/login';
   static const String register = '/register';
-  static const String home = '/home';
   static const String mainApp = '/mainApp';
   static const String otpVerification = '/otpVerification';
   static const String createPassword = '/createPassword';

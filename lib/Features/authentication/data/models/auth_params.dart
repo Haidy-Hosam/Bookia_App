@@ -4,12 +4,7 @@ class AuthParams {
   String? password;
   String? passwordConfirmation;
 
-  AuthParams({
-    this.name,
-    this.email,
-    this.password,
-    this.passwordConfirmation,
-  });
+  AuthParams({this.name, this.email, this.password, this.passwordConfirmation});
 
   Map<String, dynamic> toJson() {
     return {

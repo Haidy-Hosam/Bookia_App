@@ -55,9 +55,12 @@ class WelcomeScreen extends StatelessWidget {
             left: 23,
             right: 23,
             child: Center(
-              child: PrimaryElevatedBotton(title: 'Login', onPressed: () {
-                pushTo(context, Routes.login);
-              }),
+              child: PrimaryElevatedBotton(
+                title: 'Login',
+                onPressed: () {
+                  pushTo(context, Routes.login);
+                },
+              ),
             ),
           ),
           Positioned(

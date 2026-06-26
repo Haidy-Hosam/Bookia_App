@@ -21,9 +21,7 @@ class CustomBackButton extends StatelessWidget {
           border: Border.all(color: AppColors.borderColor, width: 1),
         ),
         padding: const EdgeInsets.all(10),
-        child: const CustomSvgPicture(
-          path: AppImages.back,
-        ),
+        child: const CustomSvgPicture(path: AppImages.back),
       ),
     );
   }

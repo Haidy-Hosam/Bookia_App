@@ -15,10 +15,7 @@ class BannerIndicator extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: List.generate(
-        length,
-        (index) => _buildIndicatorDot(index),
-      ),
+      children: List.generate(length, (index) => _buildIndicatorDot(index)),
     );
   }
 
@@ -31,9 +28,7 @@ class BannerIndicator extends StatelessWidget {
       height: 8,
       width: isActive ? 26 : 8,
       decoration: BoxDecoration(
-        color: isActive
-            ? AppColors.primaryColor
-            : AppColors.borderColor,
+        color: isActive ? AppColors.primaryColor : AppColors.borderColor,
         borderRadius: BorderRadius.circular(99),
       ),
     );

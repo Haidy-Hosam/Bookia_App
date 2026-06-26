@@ -27,10 +27,7 @@ class BannerSlider extends StatelessWidget {
             child: Stack(
               fit: StackFit.expand,
               children: [
-                Image.asset(
-                  bannerImages[index],
-                  fit: BoxFit.cover,
-                ),
+                Image.asset(bannerImages[index], fit: BoxFit.cover),
                 Container(
                   decoration: BoxDecoration(
                     gradient: LinearGradient(

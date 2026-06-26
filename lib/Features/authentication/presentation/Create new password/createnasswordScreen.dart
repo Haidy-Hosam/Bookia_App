@@ -14,12 +14,13 @@ import 'package:bookia_app/Features/authentication/presentation/login/page/login
 import 'package:bookia_app/Features/authentication/presentation/login/widget/authfotter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
 class CreatenewpasswordScreeen extends StatelessWidget {
   const CreatenewpasswordScreeen({super.key});
 
   @override
   Widget build(BuildContext context) {
-     return Scaffold(
+    return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
         backgroundColor: Colors.transparent,
@@ -38,7 +39,7 @@ class CreatenewpasswordScreeen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                      20.h,
+                20.h,
 
                 Align(
                   alignment: Alignment.centerLeft,
@@ -51,22 +52,27 @@ class CreatenewpasswordScreeen extends StatelessWidget {
                   alignment: Alignment.centerLeft,
                   child: Text(
                     "Your new password must be unique from those previously used.",
-                    style: TextStyles.subtitle.copyWith(color: AppColors.darkGreyColor),
+                    style: TextStyles.subtitle.copyWith(
+                      color: AppColors.darkGreyColor,
+                    ),
                   ),
                 ),
 
                 30.h,
-                
+
                 AppPassFormField(title: 'New Password'),
-                                30.h,
+                30.h,
 
                 AppPassFormField(title: 'Confirm New Password'),
 
                 30.h,
 
-                PrimaryElevatedBotton(title: 'Reset Password', onPressed: () {
-                  pushTo(context, Routes.passwordChanged);
-                }),
+                PrimaryElevatedBotton(
+                  title: 'Reset Password',
+                  onPressed: () {
+                    pushTo(context, Routes.passwordChanged);
+                  },
+                ),
                 30.h,
               ],
             ),

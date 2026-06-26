@@ -72,7 +72,7 @@ class RegisterScreen extends StatelessWidget {
     return MyBodyView(
       child: SingleChildScrollView(
         child: Form(
-          autovalidateMode: AutovalidateMode.onUnfocus,// ****************** //
+          autovalidateMode: AutovalidateMode.onUnfocus, // ****************** //
           key: cubit.formKey,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,

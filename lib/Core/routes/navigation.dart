@@ -8,6 +8,7 @@ void pushTo(BuildContext context, String routeName) {
 void pushReplacement(BuildContext context, String routeName) {
   context.pushReplacement(routeName);
 }
+
 void pushTobase(BuildContext context, String routeName) {
   context.go(routeName);
 }

@@ -1,5 +1,4 @@
 import 'package:bookia_app/Core/routes/routes.dart';
-import 'package:bookia_app/Features/Home/presentation/home_page.dart';
 import 'package:bookia_app/Features/Splash_Screen/splashscreen.dart';
 import 'package:bookia_app/Features/authentication/presentation/Create%20new%20password/createnasswordScreen.dart';
 import 'package:bookia_app/Features/authentication/presentation/Forget%20Password/forget_pass_screen.dart';
@@ -40,7 +39,6 @@ class AppRouter {
         ),
       ),
       // ========================================================================================== //
-      GoRoute(path: Routes.home, builder: (context, state) => const HomePage()),
       // ========================================================================================== //
       GoRoute(
         path: Routes.forgetPassword,

@@ -8,9 +8,15 @@ abstract class DioProvider {
     dio = Dio(
       BaseOptions(
         baseUrl: APIs.baseUrl,
-        connectTimeout: const Duration(seconds: 10), // ده الوقت المسموح لتكوين الاتصال بالسيرفر.
-        sendTimeout: const Duration(seconds: 10),// ده الوقت المسموح لإرسال البيانات للسيرفر.
-        receiveTimeout: const Duration(seconds: 10), // ده الوقت المسموح لانتظار رد السيرفر بعد ما الـ Request اتبعت.
+        connectTimeout: const Duration(
+          seconds: 10,
+        ), // ده الوقت المسموح لتكوين الاتصال بالسيرفر.
+        sendTimeout: const Duration(
+          seconds: 10,
+        ), // ده الوقت المسموح لإرسال البيانات للسيرفر.
+        receiveTimeout: const Duration(
+          seconds: 10,
+        ), // ده الوقت المسموح لانتظار رد السيرفر بعد ما الـ Request اتبعت.
       ),
     );
   }

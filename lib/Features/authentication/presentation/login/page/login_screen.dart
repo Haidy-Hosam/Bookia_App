@@ -130,7 +130,6 @@ class LoginScreen extends StatelessWidget {
                 onPressed: () {
                   if (cubit.formKey.currentState!.validate()) {
                     cubit.login();
-
                   }
                 },
               ),

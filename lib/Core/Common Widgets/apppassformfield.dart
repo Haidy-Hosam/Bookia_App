@@ -7,7 +7,7 @@ class AppPassFormField extends StatefulWidget {
     this.keyboardType = TextInputType.text,
     this.suffix,
     this.controller,
-    this.validator
+    this.validator,
   });
   final String title;
   final Icon? suffix;
@@ -41,7 +41,7 @@ class _AppPassFormFieldState extends State<AppPassFormField> {
             ),
         hintText: widget.title,
       ),
-        controller: widget.controller,
+      controller: widget.controller,
       // onTapUpOutside: (event){
       //   FocusManager.instance.primaryFocus?.un();
       // },

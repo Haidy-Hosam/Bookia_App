@@ -2,6 +2,7 @@ import 'package:bookia_app/Core/Constants/app_images.dart';
 import 'package:flutter/material.dart';
 import 'package:bookia_app/Core/Styles/Appcolors.dart';
 import 'package:lottie/lottie.dart';
+
 void showErrorDialog(BuildContext context, String message) {
   ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
@@ -18,9 +19,6 @@ void showLoadingDialog(BuildContext context) {
     context: context,
     barrierDismissible: false,
     barrierColor: AppColors.darkColor.withValues(alpha: 0.7),
-    builder: (context) =>
-        Center(
-          child: Lottie.asset(AppImages.loadingJson),
-        ),
+    builder: (context) => Center(child: Lottie.asset(AppImages.loadingJson)),
   );
 }

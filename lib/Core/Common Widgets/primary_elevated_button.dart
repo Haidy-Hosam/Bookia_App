@@ -10,7 +10,6 @@ class PrimaryElevatedBotton extends StatelessWidget {
     this.backgroundColor,
     this.titleColor,
     this.borderColor,
-
   });
 
   final String title;

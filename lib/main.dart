@@ -9,7 +9,9 @@ import 'package:flutter/material.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   DioProvider.init();
-  runApp(DevicePreview(enabled: !kDebugMode, builder: (context) => const MainApp()));
+  runApp(
+    DevicePreview(enabled: !kDebugMode, builder: (context) => const MainApp()),
+  );
 }
 
 class MainApp extends StatelessWidget {

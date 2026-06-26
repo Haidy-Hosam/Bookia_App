@@ -5,13 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class GandA_Container extends StatelessWidget {
-  const GandA_Container({
-    super.key,
-    required this.title,
-    required this.icon,
-  });
-final String title;
-final String icon;
+  const GandA_Container({super.key, required this.title, required this.icon});
+  final String title;
+  final String icon;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -21,10 +17,7 @@ final String icon;
         border: Border.all(color: AppColors.borderColor),
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 20,
-          vertical: 10,
-        ),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

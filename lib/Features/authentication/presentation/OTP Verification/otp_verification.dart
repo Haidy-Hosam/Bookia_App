@@ -112,9 +112,12 @@ class _OTP_VerificationState extends State<OTP_Verification> {
 
                 30.h,
 
-                PrimaryElevatedBotton(title: 'Verify', onPressed: () {
-                  pushTo(context, Routes.createPassword);
-                }),
+                PrimaryElevatedBotton(
+                  title: 'Verify',
+                  onPressed: () {
+                    pushTo(context, Routes.createPassword);
+                  },
+                ),
 
                 20.h,
 

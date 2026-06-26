@@ -4,9 +4,7 @@ import 'package:bookia_app/Core/Styles/text_styles.dart';
 import 'package:flutter/material.dart';
 
 class BestSellerSection extends StatelessWidget {
-  BestSellerSection({
-    super.key,
-  });
+  BestSellerSection({super.key});
 
   final List<_BookItem> _bestSellerBooks = const [
     _BookItem(title: 'The Great Gatsby', price: '\$10.99'),
@@ -132,7 +130,6 @@ class BestSellerSection extends StatelessWidget {
     );
   }
 }
-
 
 class _BookItem {
   final String title;

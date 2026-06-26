@@ -1,11 +1,10 @@
 import 'package:bookia_app/Core/Common%20Widgets/custom_svg_picture.dart';
 import 'package:bookia_app/Core/Constants/app_images.dart';
 import 'package:bookia_app/Core/Styles/Appcolors.dart';
-import 'package:bookia_app/Features/Home/presentation/home_page.dart';
+import 'package:bookia_app/Features/Home/presentation/Page/home_page.dart';
 import 'package:bookia_app/Features/profile/presentation/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
 
 class MainAppScreen extends StatefulWidget {
   const MainAppScreen({super.key});
@@ -13,14 +12,15 @@ class MainAppScreen extends StatefulWidget {
   @override
   State<MainAppScreen> createState() => _MainAppScreemState();
 }
+
 class _MainAppScreemState extends State<MainAppScreen> {
   int _currentIndex = 0;
-final List<Widget> _screens = [
-  HomePage(),
-  const Scaffold(body: Center(child: Text("bookmark"))),
-  const Scaffold(body: Center(child: Text("shop"))),
-  const ProfileScreen(),
-];
+  final List<Widget> _screens = [
+    HomePage(),
+    const Scaffold(body: Center(child: Text("bookmark"))),
+    const Scaffold(body: Center(child: Text("shop"))),
+    const ProfileScreen(),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
