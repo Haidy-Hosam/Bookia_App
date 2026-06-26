@@ -2,6 +2,7 @@ import 'package:bookia_app/Core/Common%20Widgets/custom_svg_picture.dart';
 import 'package:bookia_app/Core/Constants/app_images.dart';
 import 'package:bookia_app/Core/Styles/Appcolors.dart';
 import 'package:bookia_app/Features/Home/presentation/home_page.dart';
+import 'package:bookia_app/Features/profile/presentation/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -18,7 +19,7 @@ final List<Widget> _screens = [
   HomePage(),
   const Scaffold(body: Center(child: Text("bookmark"))),
   const Scaffold(body: Center(child: Text("shop"))),
-  const Scaffold(body: Center(child: Text("Profile"))),
+  const ProfileScreen(),
 ];
   @override
   Widget build(BuildContext context) {

@@ -9,6 +9,8 @@ import 'package:bookia_app/Features/authentication/presentation/cubit/auth_cubit
 import 'package:bookia_app/Features/authentication/presentation/login/page/login_screen.dart';
 import 'package:bookia_app/Features/authentication/presentation/register/registerScreen.dart';
 import 'package:bookia_app/main_screen.dart';
+import 'package:bookia_app/Features/profile/presentation/edit_profile_screen.dart';
+import 'package:bookia_app/Features/order/presentation/place_order_screen.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -66,6 +68,16 @@ class AppRouter {
       GoRoute(
         path: Routes.passwordChanged,
         builder: (context, state) => const PasswordChangedScreen(),
+      ),
+      // ========================================================================================== //
+      GoRoute(
+        path: Routes.editProfile,
+        builder: (context, state) => const EditProfileScreen(),
+      ),
+      // ========================================================================================== //
+      GoRoute(
+        path: Routes.placeOrder,
+        builder: (context, state) => const PlaceOrderScreen(),
       ),
       //       ShellRoute(
       //   builder: (context, state, child) {

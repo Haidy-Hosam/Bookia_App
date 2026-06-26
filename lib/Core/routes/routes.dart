@@ -8,4 +8,6 @@ class Routes {
   static const String createPassword = '/createPassword';
   static const String forgetPassword = '/forgetPassword';
   static const String passwordChanged = '/passwordChanged';
+  static const String editProfile = '/editProfile';
+  static const String placeOrder = '/placeOrder';
 }
