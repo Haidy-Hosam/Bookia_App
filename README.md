@@ -17,21 +17,20 @@ The app follows the **Clean Architecture** principles and **Feature-First** stru
 
 ```
 lib/
-├── core/
-│   ├── constants/       # App-wide constants (images, fonts, strings)
-│   ├── routes/          # Navigation and routing setup (go_router)
-│   ├── services/        # Third-party services (Dio, LocalStorage, etc.)
-│   ├── styles/          # Themes, Colors, TextStyles
-│   ├── utils/           # Helper extensions and functions
-│   └── widgets/         # Reusable app-wide UI components
-├── features/
-│   ├── authentication/  # Login, Register, Forgot Password, OTP
-│   │   ├── data/
-│   │   └── presentation/
-│   ├── home/            # Home screen, Banner, Best Sellers
-│   ├── main_layout/     # Bottom navigation skeleton
-│   ├── splash/          # Splash screen
-│   └── welcome/         # Welcome/Onboarding screen
+├── Core/
+│   ├── Common Widgets/  # Reusable app-wide UI components
+│   ├── Constants/       # App-wide constants (images, fonts, strings)
+│   ├── Functions/       # Helper extensions and functions
+│   ├── Services/        # Third-party services (Dio, LocalStorage, etc.)
+│   ├── Styles/          # Themes, Colors, TextStyles
+│   └── routes/          # Navigation and routing setup (go_router)
+├── Features/
+│   ├── Home/            # Home screen, Banner, Best Sellers
+│   ├── Splash_Screen/   # Splash screen
+│   ├── Welcome_Screen/  # Welcome/Onboarding screen
+│   └── authentication/  # Login, Register, Forgot Password, OTP
+│       ├── data/
+│       └── presentation/
 └── main.dart            # App entry point
 ```
 
