@@ -7,15 +7,20 @@ import 'package:bookia_app/Core/routes/navigation.dart';
 import 'package:bookia_app/Core/Styles/Appcolors.dart';
 import 'package:bookia_app/Core/Styles/text_styles.dart';
 import 'package:bookia_app/Core/routes/routes.dart';
+import 'package:bookia_app/Features/authentication/presentation/cubit/auth_cubit.dart';
 import 'package:bookia_app/Features/authentication/presentation/login/widget/authfotter.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
 class ForgetPasswordScreen extends StatelessWidget {
   const ForgetPasswordScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-     return Scaffold(
+    var cubit = context.read<AuthCubit>();
+
+    return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
         backgroundColor: Colors.transparent,
@@ -34,34 +39,42 @@ class ForgetPasswordScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                      20.h,
-
+                20.h,
                 Align(
                   alignment: Alignment.centerLeft,
-                  child: Text(
-                    "Forgot Password?",
-                    style: TextStyles.headline,
-                  ),
+                  child: Text("Forgot Password?", style: TextStyles.headline),
                 ),
                 Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
                     "Don't worry! It occurs. Please enter the email address linked with your account.",
-                    style: TextStyles.subtitle.copyWith(color: AppColors.darkGreyColor),
+                    style: TextStyles.subtitle.copyWith(
+                      color: AppColors.darkGreyColor,
+                    ),
                   ),
                 ),
 
                 30.h,
-                customtextformdield(
-                  hintText: 'Enter Your Email',
-                  keyboardType: TextInputType.emailAddress,
-                  controller: TextEditingController(),
+                Form(
+                  autovalidateMode:
+                      AutovalidateMode.onUnfocus, // ****************** //
+                  key: cubit.formKey,
+                  child: customtextformdield(
+                    hintText: 'Enter Your Email',
+                    keyboardType: TextInputType.emailAddress,
+                    controller: cubit.emailController,
+                  ),
                 ),
                 30.h,
 
-                PrimaryElevatedBotton(title: 'Send Code', onPressed: () {
-                  pushTo(context, Routes.otpVerification);
-                }),
+                PrimaryElevatedBotton(
+                  title: 'Send Code',
+                  onPressed: () {
+                    cubit.forgetpassword();
+                  },
+                ),
+
+                
                 30.h,
               ],
             ),

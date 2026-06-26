@@ -41,6 +41,14 @@ class AppRouter {
       GoRoute(path: Routes.home, builder: (context, state) => const HomePage()),
       // ========================================================================================== //
       GoRoute(
+        path: Routes.forgetPassword,
+        builder: (context, state) => BlocProvider(
+          create: (context) => AuthCubit(),
+          child: const ForgetPasswordScreen(),
+        ),
+      ),
+      // ========================================================================================== //
+      GoRoute(
         path: Routes.otpVerification,
         builder: (context, state) => const OTP_Verification(),
       ),
@@ -53,11 +61,6 @@ class AppRouter {
       GoRoute(
         path: Routes.createPassword,
         builder: (context, state) => const CreatenewpasswordScreeen(),
-      ),
-      // ========================================================================================== //
-      GoRoute(
-        path: Routes.forgetPassword,
-        builder: (context, state) => const ForgetPasswordScreen(),
       ),
       // ========================================================================================== //
       GoRoute(

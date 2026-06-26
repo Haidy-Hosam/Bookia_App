@@ -56,4 +56,21 @@ class AuthCubit extends Cubit<AuthState> {
       emit(AuthErrorState("Something went wrong, Please try again"));
     }
   }
+
+  // =============================================================================== //
+  Future<void> forgetpassword() async {
+    emit(AuthLoadingState());
+
+    var params = AuthParams(email: emailController.text);
+
+    log(params.toJson().toString());
+    var data = await AuthRepo.forgetPasswordRepo(params);
+
+    if (data != null) {
+      emit(AuthSuccessState());
+    } else {
+      log("Forget Password process Failed");
+      emit(AuthErrorState("Something went wrong, Please try again"));
+    }
+  }
 }

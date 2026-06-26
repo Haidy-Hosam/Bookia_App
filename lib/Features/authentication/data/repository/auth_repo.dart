@@ -29,12 +29,37 @@ class AuthRepo {
       return null;
     }
   }
+  // =============================================================================== //
 
   static Future<AuthResponse?> registerRepo(AuthParams params) async {
     try {
       log("Request Body: ${params.toJson()}");
       var response = await DioProvider.post(
         endpoint: APIs.registerEndpoint,
+        data: params.toJson(),
+      );
+
+      if (response.statusCode == 201) {
+        return AuthResponse.fromJson(response.data);
+      } else {
+        return null;
+      }
+    } on DioException catch (e) {
+      log("Status Code: ${e.response?.statusCode}");
+      log("Response: ${e.response?.data}");
+      return null;
+    } catch (e) {
+      log(e.toString());
+      return null;
+    }
+  }
+  // =============================================================================== //
+
+  static Future<AuthResponse?> forgetPasswordRepo(AuthParams params) async {
+    try {
+      log("Request Body: ${params.toJson()}");
+      var response = await DioProvider.post(
+        endpoint: APIs.forgetPasswordEndpoint,
         data: params.toJson(),
       );
 
