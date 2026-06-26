@@ -5,7 +5,7 @@ import 'package:bookia_app/Features/Home/data/Model/best_seller_response/best_se
 import 'package:bookia_app/Features/Home/data/Model/slider_response/slider_response.dart';
 
 class HomeRepo {
-  Future<SliderResponse?> getslider() async {
+  static Future<SliderResponse?> getslider() async {
     try {
       var response = await DioProvider.get(endpoint: APIs.sliderEndpoint);
       if (response.statusCode == 200) {
@@ -19,7 +19,7 @@ class HomeRepo {
     }
   }
   // ================================================================================
-  Future<BestSellerResponse?> getbestseller() async {
+  static Future<BestSellerResponse?> getbestseller() async {
     try {
       var response = await DioProvider.get(endpoint: APIs.bestsallerEndpoint);
       if (response.statusCode == 200) {
