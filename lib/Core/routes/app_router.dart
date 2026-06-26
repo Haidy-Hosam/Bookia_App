@@ -1,5 +1,5 @@
 import 'package:bookia_app/Core/routes/routes.dart';
-import 'package:bookia_app/Features/Splash_Screen/splashscreen.dart';
+import 'package:bookia_app/Features/Splash_Screen/Page/splashscreen.dart';
 import 'package:bookia_app/Features/authentication/presentation/Create%20new%20password/createnasswordScreen.dart';
 import 'package:bookia_app/Features/authentication/presentation/Forget%20Password/forget_pass_screen.dart';
 import 'package:bookia_app/Features/authentication/presentation/OTP%20Verification/otp_verification.dart';
