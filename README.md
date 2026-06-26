@@ -45,11 +45,10 @@ lib/
 
 ## 📸 Screenshots
 
-*(Replace with actual screenshots)*
 
 | Welcome Screen | Login Screen | Home Screen |
 | :---: | :---: | :---: |
-| <img src="https://via.placeholder.com/200x400.png?text=Welcome" width="200" /> | <img src="https://via.placeholder.com/200x400.png?text=Login" width="200" /> | <img src="https://via.placeholder.com/200x400.png?text=Home" width="200" /> |
+| <img src="Mockups/Welcom Mockup.png" width="400" /> | <img src="Mockups/Login Mockup.png" width="400" /> | <img src="Mockups/Home Mockup.png" width="400" /> |
 
 ## ⚙️ Getting Started
 
