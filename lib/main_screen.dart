@@ -16,7 +16,7 @@ class MainAppScreen extends StatefulWidget {
 class _MainAppScreemState extends State<MainAppScreen> {
   int _currentIndex = 0;
   final List<Widget> _screens = [
-    HomePage(),
+    HomeScreen(),
     const Scaffold(body: Center(child: Text("bookmark"))),
     const Scaffold(body: Center(child: Text("shop"))),
     const ProfileScreen(),
