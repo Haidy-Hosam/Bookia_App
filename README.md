@@ -97,4 +97,4 @@ The **Feature-First** structure ensures that as the app grows, modules can easil
 This project is open-source and available under the [MIT License](LICENSE).
 
 ---
-*Built with ❤️ using Flutter.*
+*Built with Haidy❤️ using Flutter.*
