@@ -29,18 +29,6 @@ class BannerSlider extends StatelessWidget {
             itemCount: cubit.sliders.length,
             onPageChanged: onPageChanged,
             itemBuilder: (context, index) {
-              errorBuilder:
-              (context, error, stackTrace) {
-                return Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15),
-                    color: AppColors.greyColor.withValues(alpha: 0.2),
-                  ),
-                  child: const Center(
-                    child: Icon(Icons.error, color: Colors.red),
-                  ),
-                );
-              };
               return ClipRRect(
                 borderRadius: BorderRadius.circular(15),
                 child: Stack(
@@ -49,6 +37,17 @@ class BannerSlider extends StatelessWidget {
                     Image.network(
                       cubit.sliders[index].image ?? '',
                       fit: BoxFit.cover,
+                      errorBuilder: (context, error, stackTrace) {
+                        return Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15),
+                            color: AppColors.greyColor.withValues(alpha: 0.2),
+                          ),
+                          child: const Center(
+                            child: Icon(Icons.error, color: Colors.red),
+                          ),
+                        );
+                      },
                     ),
                     Container(
                       decoration: BoxDecoration(

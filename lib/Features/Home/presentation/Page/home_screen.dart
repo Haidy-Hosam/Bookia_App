@@ -3,6 +3,7 @@ import 'package:bookia_app/Core/Functions/extentions.dart';
 import 'package:bookia_app/Core/Styles/Appcolors.dart';
 import 'package:bookia_app/Features/Home/presentation/Cubit/home_cubit.dart';
 import 'package:bookia_app/Features/Home/presentation/Cubit/home_state.dart';
+import 'package:bookia_app/Core/Common%20Widgets/Shimmer/banner_shimmer.dart';
 import 'package:bookia_app/Features/Home/presentation/Widgets/bannerIndicator.dart';
 import 'package:bookia_app/Features/Home/presentation/Widgets/bannerslider.dart';
 import 'package:bookia_app/Features/Home/presentation/Widgets/best_seller_section.dart';
@@ -59,34 +60,50 @@ class _HomePageState extends State<HomeScreen> {
 
       ////////////////////////////////////////////////
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
-            child: BlocBuilder<HomeCubit, HomeState>(
-              builder: (context, state) {
-                return Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            10.h,
-                            BannerSlider(
-                              pageController: _pageController,
-                              bannerImages: _bannerImages,
-                              onPageChanged: (index) {
-                                setState(() {
-                                  _currentBannerIndex = index;
-                                });
-                              },
-                            ),
-                            12.h,
-                            BannerIndicator(
-                              currentIndex: _currentBannerIndex,
-                              length: _bannerImages.length,
-                            ),
-                            30.h,
-                            BestSellerSection(),
-                          ],
-                        );
-              },
+        child: RefreshIndicator(
+          onRefresh: () async {
+            await context.read<HomeCubit>().loadInitData();
+          },
+          child: SingleChildScrollView(
+            physics: const AlwaysScrollableScrollPhysics(
+              parent: ClampingScrollPhysics(),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
+              child: BlocBuilder<HomeCubit, HomeState>(
+                builder: (context, state) {
+                  final isLoading = state is HomeLoadingState || state is HomeinitState;
+
+                  return Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      10.h,
+                      if (isLoading) ...[
+                        const BannerShimmer(),
+                        12.h,
+                        const BannerShimmer(height: 12),
+                      ] else ...[
+                        BannerSlider(
+                          pageController: _pageController,
+                          bannerImages: _bannerImages,
+                          onPageChanged: (index) {
+                            setState(() {
+                              _currentBannerIndex = index;
+                            });
+                          },
+                        ),
+                        12.h,
+                        BannerIndicator(
+                          currentIndex: _currentBannerIndex,
+                          length: _bannerImages.length,
+                        ),
+                      ],
+                      30.h,
+                      const BestSellerSection(),
+                    ],
+                  );
+                },
+              ),
             ),
           ),
         ),

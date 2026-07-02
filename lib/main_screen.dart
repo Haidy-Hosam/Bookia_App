@@ -2,7 +2,7 @@ import 'package:bookia_app/Core/Common%20Widgets/custom_svg_picture.dart';
 import 'package:bookia_app/Core/Constants/app_images.dart';
 import 'package:bookia_app/Core/Styles/Appcolors.dart';
 import 'package:bookia_app/Features/Home/presentation/Cubit/home_cubit.dart';
-import 'package:bookia_app/Features/Home/presentation/Page/home_page.dart';
+import 'package:bookia_app/Features/Home/presentation/Page/home_screen.dart';
 import 'package:bookia_app/Features/profile/presentation/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -16,8 +16,6 @@ class MainAppScreen extends StatefulWidget {
 }
 
 class _MainAppScreemState extends State<MainAppScreen> {
-
-
   int _currentIndex = 0;
   final List<Widget> _screens = [
     BlocProvider(
@@ -29,11 +27,10 @@ class _MainAppScreemState extends State<MainAppScreen> {
     const ProfileScreen(),
   ];
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _screens[_currentIndex],
+      body: IndexedStack(index: _currentIndex, children: _screens),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         onTap: (index) {
