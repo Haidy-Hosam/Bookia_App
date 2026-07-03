@@ -83,7 +83,7 @@ abstract class DioProvider {
     Map<String, dynamic>? queryParameters,
     Map<String, dynamic>? headers,
   }) async {
-    return await dio.get(
+    return await dio.delete(
       endpoint,
       data: data,
       queryParameters: queryParameters,

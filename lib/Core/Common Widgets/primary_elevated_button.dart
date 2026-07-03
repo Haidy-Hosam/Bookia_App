@@ -10,6 +10,8 @@ class PrimaryElevatedBotton extends StatelessWidget {
     this.backgroundColor,
     this.titleColor,
     this.borderColor,
+    this.minWidth,
+    this.minHeight
   });
 
   final String title;
@@ -17,6 +19,8 @@ class PrimaryElevatedBotton extends StatelessWidget {
   final Color? backgroundColor;
   final Color? titleColor;
   final Color? borderColor;
+  final double? minWidth;
+  final double? minHeight;
 
   @override
   Widget build(BuildContext context) {

@@ -57,11 +57,12 @@ class BestSellerSection extends StatelessWidget {
                   childAspectRatio: 0.62,
                 ),
                 itemBuilder: (context, index) {
+                  var book = cubit.products[index];
                   return GestureDetector(
                     onTap: () {
-                      // pushTo(context, '/book_details', arguments: cubit.products[index]);
+                      // pushTo(context, Routes.details, extra: book);
                     },
-                    child: BookCard(index: index),
+                    child: BookCard(book: book),
                   );
                 },
               ),

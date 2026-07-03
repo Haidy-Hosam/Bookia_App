@@ -9,4 +9,5 @@ class Routes {
   static const String passwordChanged = '/passwordChanged';
   static const String editProfile = '/editProfile';
   static const String placeOrder = '/placeOrder';
+  static const String details = '/details';
 }

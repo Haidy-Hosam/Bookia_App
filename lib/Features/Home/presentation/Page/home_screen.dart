@@ -72,7 +72,8 @@ class _HomePageState extends State<HomeScreen> {
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
               child: BlocBuilder<HomeCubit, HomeState>(
                 builder: (context, state) {
-                  final isLoading = state is HomeLoadingState || state is HomeinitState;
+                  final isLoading =
+                      state is HomeLoadingState || state is HomeinitState;
 
                   return Column(
                     crossAxisAlignment: CrossAxisAlignment.start,

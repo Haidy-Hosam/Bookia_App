@@ -18,6 +18,7 @@ class HomeRepo {
       return null;
     }
   }
+
   // ================================================================================
   static Future<BestSellerResponse?> getbestseller() async {
     try {

@@ -1,94 +1,97 @@
+import 'package:bookia_app/Core/Common%20Widgets/primary_elevated_button.dart';
 import 'package:bookia_app/Core/Functions/extentions.dart';
 import 'package:bookia_app/Core/Styles/Appcolors.dart';
 import 'package:bookia_app/Core/Styles/text_styles.dart';
-import 'package:bookia_app/Features/Home/presentation/Cubit/home_cubit.dart';
+import 'package:bookia_app/Core/routes/navigation.dart';
+import 'package:bookia_app/Core/routes/routes.dart';
+import 'package:bookia_app/Features/Home/data/Model/best_seller_response/datum.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class BookCard extends StatelessWidget {
   const BookCard({
     super.key,
-    required this.index,
+    required this.book,
+    this.onRemoveFromWishlist,
+    this.onRefresh,
   });
 
-  final int index;
+  final Datum book;
+
+  final VoidCallback? onRemoveFromWishlist;
+  final VoidCallback? onRefresh;
 
   @override
   Widget build(BuildContext context) {
-    var book = context.read<HomeCubit>().products[index];
-    return Container(
-      padding: const EdgeInsets.all(12),
-      decoration: BoxDecoration(
-        color: AppColors.backgroundColor,
-        borderRadius: BorderRadius.circular(18),
-        border: Border.all(color: AppColors.borderColor),
-        boxShadow: [
-          BoxShadow(
-            color: AppColors.darkColor.withValues(alpha: 0.06),
-            blurRadius: 18,
-            offset: const Offset(0, 8),
-          ),
-        ],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(14),
-            child:Image.network(
-              book.image ?? '',
-              height: 200,
-              width: double.infinity,
-              fit: BoxFit.cover,
-            ),
-          ),
-          10.h,
-          Text(
-            book.name ?? 'Unknown Book',
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-            style: TextStyles.headline.copyWith(
-              color: AppColors.blackColor,
-              fontSize: 18,
-            ),
-          ),
-          const Spacer(),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              Text(
-                book.price ?? 'Price not available',
-                style: TextStyles.title.copyWith(
-                  color: AppColors.blackColor,
-                  fontSize: 22,
-                ),
-              ),
-              const Spacer(),
-              SizedBox(
-                height: 42,
-                child: ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.darkColor,
-                    foregroundColor: AppColors.backgroundColor,
-                    padding: const EdgeInsets.symmetric(horizontal: 22),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    elevation: 0,
-                  ),
-                  child: Text(
-                    'Buy',
-                    style: TextStyles.subtitle.copyWith(
-                      color: AppColors.backgroundColor,
-                      fontWeight: FontWeight.w700,
-                    ),
+    return GestureDetector(
+      onTap: () {
+        // pushTo(context, Routes.details, extra: book).then((value) {
+        //   onRefresh?.call();
+        // });
+      },
+      child: Container(
+        padding: const EdgeInsets.all(10),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          color: AppColors.backgroundColor,
+          border: Border.all(color: AppColors.borderColor),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Expanded(
+              child: Hero(
+                tag: book.id ?? '',
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: Image.network(
+                    book.image ?? '',
+                    fit: BoxFit.cover,
+                    width: double.infinity,
+                    errorBuilder: (context, error, stackTrace) {
+                      return const Center(child: Text('Error'));
+                    },
                   ),
                 ),
               ),
-            ],
-          ),
-        ],
+            ),
+            10.h,
+            SizedBox(
+              height: 50,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    book.name ?? '',
+                    style: TextStyles.body,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ],
+              ),
+            ),
+            10.h,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(book.price ?? '', style: TextStyles.body),
+                onRemoveFromWishlist != null
+                    ? IconButton(
+                        onPressed: onRemoveFromWishlist,
+                        icon: Icon(Icons.delete, color: AppColors.errorColor),
+                      )
+                    : PrimaryElevatedBotton(
+                        minHeight: 35,
+                        minWidth: 60,
+                        backgroundColor: AppColors.darkColor,
+
+                        title: 'Buy',
+                        onPressed: () {},
+                      ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

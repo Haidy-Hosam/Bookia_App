@@ -3,6 +3,8 @@ import 'package:bookia_app/Core/Constants/app_images.dart';
 import 'package:bookia_app/Core/Styles/Appcolors.dart';
 import 'package:bookia_app/Features/Home/presentation/Cubit/home_cubit.dart';
 import 'package:bookia_app/Features/Home/presentation/Page/home_screen.dart';
+import 'package:bookia_app/Features/wishlist/presentation/cubit/wishlist_cubit.dart';
+import 'package:bookia_app/Features/wishlist/presentation/page/wishlist_screen.dart';
 import 'package:bookia_app/Features/profile/presentation/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -22,7 +24,10 @@ class _MainAppScreemState extends State<MainAppScreen> {
       create: (context) => HomeCubit()..loadInitData(),
       child: HomeScreen(),
     ),
-    const Scaffold(body: Center(child: Text("bookmark"))),
+    BlocProvider(
+      create: (context) => WishlistCubit()..loadWishlist(),
+      child: WishlistScreen(),
+    ),
     const Scaffold(body: Center(child: Text("shop"))),
     const ProfileScreen(),
   ];
